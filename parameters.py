@@ -37,7 +37,10 @@ torch.manual_seed(0) # for reproducibility
 
 Tensor = torch.cuda.FloatTensor if CUDA else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if CUDA else torch.LongTensor
-zeros = lambda *x: torch.zeros(*x).cuda() if CUDA else torch.zeros
+#**********
+#zeros = lambda *x: torch.zeros(*x).cuda() if CUDA else torch.zeros
+zeros = lambda *x: torch.zeros(*x).cuda() if CUDA else torch.zeros(*x)
+#**********
 
 NUM_DIGITS = 4 # number of decimal places to print
 assert BATCH_SIZE % BEAM_SIZE == 0
